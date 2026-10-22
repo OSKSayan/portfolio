@@ -3,95 +3,282 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Саян Оразбек — Data</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<title>Саян Оразбек — Data Science</title>
+<meta name="description" content="Портфолио Саяна Оразбека: Data Science, AI, Python">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-*{box-sizing:border-box}body{margin:0}
-/* Layout: single column "notebook" — sections read like cells In[1], In[2]... */
+/* Layout: full-bleed live "training" canvas hero, then sections as a scrollable notebook */
 :root{
-  --bg:#f5f7f6; --surface:#ffffff; --fg:#14201c; --muted:#5b6b65; --line:#d9e2de;
-  --accent:#0f8a5f; --accent-soft:#e2f3ec;
-  --display:"Unbounded",system-ui,sans-serif; --body:"Golos Text",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  --bg:#07100d;--bg2:#0d1a16;--card:#11211c;--fg:#e8f3ee;--muted:#8fa69d;--line:#1f362e;
+  --acc:#3df5a7;--acc2:#7aa8ff;--warm:#ffcf6b;
+  --display:"Unbounded",system-ui,sans-serif;--body:"Golos Text",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+  color-scheme:dark
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1513;--surface:#151f1c;--fg:#e6efeb;--muted:#93a59e;--line:#25332e;--accent:#3fcf98;--accent-soft:#16332a;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0e1513;--surface:#151f1c;--fg:#e6efeb;--muted:#93a59e;--line:#25332e;--accent:#3fcf98;--accent-soft:#16332a;color-scheme:dark}
-body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.wrap{max-width:820px;margin:0 auto;padding-block:56px 72px;display:grid;gap:44px}
-h1,h2{font-family:var(--display);text-wrap:balance;margin:0}
-h1{font-size:clamp(30px,6vw,48px);line-height:1.1}
-h2{font-size:20px}
-.cell{display:grid;gap:14px}
-.tag{font:500 12px var(--mono);color:var(--accent);letter-spacing:.04em}
-.lead{font-size:18px;color:var(--muted);max-width:62ch;margin:0}
-.role{display:inline-block;background:var(--accent-soft);color:var(--accent);font:500 13px var(--mono);padding:6px 10px;border-radius:6px}
-.contacts{display:flex;flex-wrap:wrap;gap:10px}
-.contacts span,.contacts a{font:14px var(--mono);border:1px solid var(--line);padding:8px 12px;border-radius:8px;color:var(--fg);text-decoration:none;user-select:all}
-.contacts a:hover{border-color:var(--accent)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips span{border:1px solid var(--line);background:var(--surface);padding:5px 11px;border-radius:999px;font-size:14px}
-.chips.hard span{font-family:var(--mono);border-color:var(--accent);color:var(--accent)}
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.proj{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:8px;min-width:0}
-.proj h3{margin:0;font-size:16px}
-.proj p{margin:0;color:var(--muted);font-size:14.5px}
-.proj code{font:12px var(--mono);color:var(--accent)}
-.edu{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
-.edu b{font-size:17px}
-.muted{color:var(--muted)}
-ul{margin:0;padding-left:20px;display:grid;gap:6px}
-footer{font:13px var(--mono);color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
-</style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 var(--body);overflow-x:hidden}
+a{color:inherit}
+.in{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:20;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+nav .in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:600 15px var(--mono);color:var(--acc);text-decoration:none}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;font-size:14px;color:var(--muted);transition:color .2s}
+nav ul a:hover{color:var(--fg)}
+@media (max-width:640px){nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:min(820px,100svh);display:flex;align-items:center;overflow:hidden;padding-block:100px 60px}
+#net{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,transparent 0,var(--bg) 75%);pointer-events:none}
+.hero .in{position:relative;z-index:2;width:100%}
+.kicker{font:13px var(--mono);color:var(--acc);letter-spacing:.08em}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,9vw,104px);line-height:.95;margin:.25em 0 .3em;letter-spacing:-.02em}
+h1 .o{-webkit-text-stroke:1.5px var(--fg);color:transparent}
+.type{font:clamp(16px,2.4vw,22px) var(--mono);color:var(--muted);min-height:1.6em}
+.type b{color:var(--acc);font-weight:600}
+.caret{display:inline-block;width:.55em;height:1.1em;background:var(--acc);vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{font:600 15px var(--body);padding:13px 22px;border-radius:12px;text-decoration:none;border:1px solid var(--line);background:var(--bg2);transition:transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--acc)}
+.btn.p{background:var(--acc);color:#04120c;border-color:var(--acc)}
+.metric{position:absolute;right:max(20px,env(safe-area-inset-right));bottom:28px;z-index:2;font:12px var(--mono);color:var(--muted);text-align:right}
+.metric b{color:var(--acc)}
+
+/* sections */
+section{padding-block:96px}
+.sh{display:flex;align-items:baseline;gap:16px;margin-bottom:40px;flex-wrap:wrap}
+.sh code{font:13px var(--mono);color:var(--acc)}
+h2{font:700 clamp(28px,4.5vw,46px)/1.1 var(--display);margin:0;text-wrap:balance}
+
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+.about p{margin:0 0 16px;color:var(--muted);max-width:60ch}
+.about p strong{color:var(--fg);font-weight:600}
+.facts{display:grid;gap:12px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.fact small{display:block;font:12px var(--mono);color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.fact span{font:600 18px var(--body)}
+@media (max-width:800px){.about{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;transition:border-color .25s,transform .25s}
+.sk:hover{border-color:var(--acc);transform:translateY(-3px)}
+.sk h3{margin:0 0 4px;font:600 17px var(--body)}
+.sk p{margin:0 0 14px;font-size:14px;color:var(--muted)}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:3px;transform-origin:left;animation:grow 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.soft{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.soft span{font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+
+/* project */
+.proj{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.proj .vis{background:var(--bg2);min-height:280px;position:relative;border-right:1px solid var(--line)}
+.proj .vis canvas{position:absolute;inset:0;width:100%;height:100%}
+.proj .txt{padding:34px}
+.proj h3{font:700 24px var(--display);margin:6px 0 12px}
+.proj p{color:var(--muted);margin:0 0 18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tags span{font:12px var(--mono);color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,transparent);padding:4px 10px;border-radius:6px}
+.soon{margin-top:16px;border:1px dashed var(--line);border-radius:20px;padding:28px;color:var(--muted);font:14px var(--mono);text-align:center}
+@media (max-width:800px){.proj{grid-template-columns:1fr}.proj .vis{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* timeline */
+.tl{border-left:2px solid var(--line);padding-left:28px;display:grid;gap:36px}
+.tl div{position:relative}
+.tl div::before{content:"";position:absolute;left:-36px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--acc)}
+.tl small{font:13px var(--mono);color:var(--acc)}
+.tl h3{margin:4px 0;font:600 20px var(--body)}
+.tl p{margin:0;color:var(--muted)}
+
+/* contact */
+.contact{text-align:left;background:linear-gradient(135deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:24px;padding:clamp(28px,5vw,60px)}
+.contact h2{font-size:clamp(30px,6vw,60px)}
+.contact p{color:var(--muted);max-width:52ch}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:28px}
+.links button,.links a{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font:14px var(--mono);transition:border-color .2s}
+.links button:hover,.links a:hover{border-color:var(--acc)}
+.links em{font-style:normal;color:var(--muted);font-size:12px}
+footer{padding-block:40px;color:var(--muted);font:13px var(--mono)}
+
+.rv{opacity:1;transform:none;transition:opacity .7s,transform .7s}
+.js .rv.hide{opacity:0;transform:translateY(24px)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <header class="cell">
-    <span class="tag">In [1]: whoami</span>
-    <h1>Саян Оразбек</h1>
-    <span class="role">Data Science · AI · Python</span>
-    <p class="lead">Студент направления Data Science в Astana International University. Люблю превращать сырые данные в понятные выводы, быстро собираю прототипы с помощью AI-инструментов и проверяю идеи математикой, а не интуицией.</p>
-    <div class="contacts">
-      <span>sayanorazbek1@gmail.com</span>
-      <span>+7 705 104 52 11</span>
-      <a href="https://github.com/OSKSayan" target="_blank" rel="noopener">GitHub →</a>
+
+<nav><div class="in">
+  <a class="logo" href="#top">sayan.py</a>
+  <ul><li><a href="#about">Обо мне</a></li><li><a href="#skills">Навыки</a></li><li><a href="#projects">Проекты</a></li><li><a href="#edu">Учёба</a></li><li><a href="#contact">Контакты</a></li></ul>
+</div></nav>
+
+<header class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="in">
+    <div class="kicker">&gt;&gt;&gt; model.fit(ideas, data)</div>
+    <h1>Саян<br><span class="o">Оразбек</span></h1>
+    <div class="type"><span id="tw"></span><span class="caret"></span></div>
+    <div class="cta">
+      <a class="btn p" href="#contact">Связаться</a>
+      <a class="btn" href="https://github.com/OSKSayan" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
-  </header>
+  </div>
+  <div class="metric">epoch <b id="ep">0</b> · loss <b id="ls">1.000</b></div>
+</header>
 
-  <section class="cell">
-    <span class="tag">In [2]: skills.hard</span>
-    <h2>Технические навыки</h2>
-    <div class="chips hard"><span>Python</span><span>SQL</span><span>pandas</span><span>NumPy</span><span>matplotlib</span><span>Jupyter</span><span>Git / GitHub</span><span>HTML</span><span>CSS</span><span>LLM / промпт-инжиниринг</span></div>
-  </section>
-
-  <section class="cell">
-    <span class="tag">In [3]: projects</span>
-    <h2>Проекты</h2>
-    <div class="projects">
-      <article class="proj"><code>HTML · CSS</code><h3>Это портфолио</h3><p>Адаптивная страница со светлой и тёмной темой, без фреймворков.</p></article>
+<main>
+<section id="about"><div class="in">
+  <div class="sh rv"><code>01 / about</code><h2>Обо мне</h2></div>
+  <div class="about">
+    <div class="rv">
+      <p>Я студент <strong>Data Science</strong> в Astana International University. Мне нравится момент, когда в таблице с тысячами строк вдруг проступает закономерность.</p>
+      <p>Работаю на <strong>Python и SQL</strong>, опираюсь на математику: статистику, линейную алгебру, вероятности. Активно использую <strong>AI-инструменты и вайбкодинг</strong>, чтобы за вечер превращать идею в работающий прототип, а потом проверять его цифрами.</p>
+      <p>Ищу стажировку, где смогу решать прикладные задачи с данными рядом с сильной командой и быстро расти.</p>
     </div>
-  </section>
+    <div class="facts rv">
+      <div class="fact"><small>Город</small><span>Астана, Казахстан</span></div>
+      <div class="fact"><small>Направление</small><span>Data Science · бакалавриат</span></div>
+      <div class="fact"><small>Статус</small><span style="color:var(--acc)">● Открыт к стажировке</span></div>
+    </div>
+  </div>
+</div></section>
 
-  <section class="cell">
-    <span class="tag">In [4]: education</span>
-    <h2>Образование</h2>
-    <div class="edu"><b>Astana International University</b><span class="muted">Бакалавриат · Data Science · выпуск 2029</span></div>
-    <ul class="muted"><li>Математический анализ, линейная алгебра, теория вероятностей и статистика</li><li>Программирование на Python, базы данных</li></ul>
-  </section>
+<section id="skills"><div class="in">
+  <div class="sh rv"><code>02 / stack</code><h2>Навыки</h2></div>
+  <div class="skills rv">
+    <div class="sk"><h3>Python</h3><p>pandas, NumPy, matplotlib, Jupyter</p><div class="bar"><i style="width:75%"></i></div></div>
+    <div class="sk"><h3>SQL</h3><p>выборки, JOIN, агрегаты, оконные функции</p><div class="bar"><i style="width:65%"></i></div></div>
+    <div class="sk"><h3>Математика</h3><p>статистика, линейная алгебра, вероятности</p><div class="bar"><i style="width:70%"></i></div></div>
+    <div class="sk"><h3>AI и вайбкодинг</h3><p>LLM-ассистенты, промптинг, быстрые прототипы</p><div class="bar"><i style="width:80%"></i></div></div>
+    <div class="sk"><h3>Git и GitHub</h3><p>репозитории, коммиты, GitHub Pages</p><div class="bar"><i style="width:60%"></i></div></div>
+    <div class="sk"><h3>HTML и CSS</h3><p>адаптивная вёрстка, этот сайт</p><div class="bar"><i style="width:60%"></i></div></div>
+  </div>
+  <div class="soft rv"><span>Аналитическое мышление</span><span>Внимание к деталям</span><span>Анализ проблем</span><span>Адаптивность</span><span>Ответственность</span><span>Коммуникация</span><span>Лидерство</span><span>Ориентация на развитие</span></div>
+</div></section>
 
-  <section class="cell">
-    <span class="tag">In [5]: skills.soft</span>
-    <h2>Личные качества</h2>
-    <div class="chips"><span>Аналитическое мышление</span><span>Анализ проблем</span><span>Внимание к деталям</span><span>Адаптивность</span><span>Ответственность</span><span>Коммуникация</span><span>Ориентация на развитие</span><span>Лидерство</span></div>
-  </section>
+<section id="projects"><div class="in">
+  <div class="sh rv"><code>03 / projects</code><h2>Проекты</h2></div>
+  <article class="proj rv">
+    <div class="vis"><canvas id="reg" aria-label="Живая линейная регрессия"></canvas></div>
+    <div class="txt">
+      <span class="kicker">live demo</span>
+      <h3>Это портфолио</h3>
+      <p>Сайт без фреймворков. В шапке нейросеть с «обучением», а слева градиентный спуск в реальном времени: линия регрессии подбирается к точкам прямо в браузере.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Canvas</span><span>GitHub Pages</span></div>
+      <a class="btn" href="https://github.com/OSKSayan/portfolio" target="_blank" rel="noopener">Код на GitHub ↗</a>
+    </div>
+  </article>
+  <div class="soon rv">// новые проекты по анализу данных скоро появятся здесь</div>
+</div></section>
 
-  <section class="cell">
-    <span class="tag">In [6]: why_internship</span>
-    <h2>Чего я ищу</h2>
-    <p class="lead">Стажировку, где можно применять прикладную математику и AI-инструменты к реальным задачам: чистить данные, строить модели и быстро доводить идеи до работающего прототипа.</p>
-  </section>
+<section id="edu"><div class="in">
+  <div class="sh rv"><code>04 / education</code><h2>Образование</h2></div>
+  <div class="tl rv">
+    <div><small>сейчас → 2029</small><h3>Astana International University</h3><p>Бакалавриат, Data Science. Математический анализ, статистика, программирование, базы данных.</p></div>
+  </div>
+</div></section>
 
-  <footer>Out[6]: открыт к стажировке · Астана, 2026</footer>
-</div>
+<section id="contact"><div class="in">
+  <div class="contact rv">
+    <code class="kicker">05 / contact</code>
+    <h2>Давайте работать<br>с данными вместе</h2>
+    <p>Открыт к стажировке в AI и Data. Нажмите на контакт, чтобы скопировать.</p>
+    <div class="links">
+      <button type="button" data-copy="sayanorazbek1@gmail.com">sayanorazbek1@gmail.com <em>копировать</em></button>
+      <button type="button" data-copy="+77051045211">+7 705 104 52 11 <em>копировать</em></button>
+      <a href="https://github.com/OSKSayan" target="_blank" rel="noopener">github.com/OSKSayan <em>открыть ↗</em></a>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="in">© 2026 Саян Оразбек · сделано вручную, без шаблонов</div></footer>
+
+<script>
+document.documentElement.classList.add('js');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// typewriter
+const lines=['Data Science студент','<b>Python</b> · <b>SQL</b> · математика','делаю прототипы с AI за вечер'];
+const tw=document.getElementById('tw');let li=0,ci=0,del=false;
+function plain(s){return s.replace(/<[^>]+>/g,'')}
+function tick(){
+  const full=lines[li],txt=plain(full);
+  ci+=del?-1:1;
+  tw.innerHTML=ci>=txt.length&&!del?full:txt.slice(0,ci);
+  let d=del?30:60;
+  if(!del&&ci>=txt.length){del=true;d=1800}
+  else if(del&&ci<=0){del=false;li=(li+1)%lines.length;d=300}
+  setTimeout(tick,d);
+}
+reduce?tw.innerHTML=lines[1]:tick();
+
+// neural network hero
+const c=document.getElementById('net'),x=c.getContext('2d');
+let W,H,layers=[];
+function size(){
+  const r=devicePixelRatio||1;W=c.clientWidth;H=c.clientHeight;c.width=W*r;c.height=H*r;x.setTransform(r,0,0,r,0,0);
+  const sizes=[4,7,7,5,2],x0=W*(W<700?.08:.48),x1=W*.94;
+  layers=sizes.map((n,i)=>Array.from({length:n},(_,j)=>({x:x0+(x1-x0)*i/(sizes.length-1),y:H*.18+(H*.64)*(j+.5)/n})));
+}
+size();addEventListener('resize',size);
+let t=0,ep=0;const pulses=[];
+function frame(){
+  x.clearRect(0,0,W,H);
+  for(let i=0;i<layers.length-1;i++)for(const a of layers[i])for(const b of layers[i+1]){
+    const w=Math.sin(a.y*.03+b.y*.02+t*.004);
+    x.strokeStyle=w>0?`rgba(61,245,167,${.05+w*.18})`:`rgba(122,168,255,${.05-w*.15})`;
+    x.lineWidth=.6+Math.abs(w);x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();
+  }
+  if(Math.random()<.18){const i=Math.random()*(layers.length-1)|0,L=layers[i],N=layers[i+1];pulses.push({a:L[Math.random()*L.length|0],b:N[Math.random()*N.length|0],p:0})}
+  for(let k=pulses.length-1;k>=0;k--){const q=pulses[k];q.p+=.025;if(q.p>=1){pulses.splice(k,1);continue}
+    x.fillStyle='#3df5a7';x.beginPath();x.arc(q.a.x+(q.b.x-q.a.x)*q.p,q.a.y+(q.b.y-q.a.y)*q.p,2.2,0,7);x.fill()}
+  layers.flat().forEach((n,i)=>{const g=.5+.5*Math.sin(t*.03+i);x.fillStyle='#0d1a16';x.strokeStyle=`rgba(61,245,167,${.4+g*.6})`;x.lineWidth=2;x.beginPath();x.arc(n.x,n.y,6,0,7);x.fill();x.stroke()});
+  t++;if(t%20===0){ep++;document.getElementById('ep').textContent=ep;document.getElementById('ls').textContent=(Math.exp(-ep/60)*.95+.04+Math.random()*.01).toFixed(3)}
+  if(!reduce)requestAnimationFrame(frame);
+}
+frame();
+
+// gradient descent demo
+const rc=document.getElementById('reg'),rx=rc.getContext('2d');
+let RW,RH,pts=[],m=-.6,b=.9;
+function rsize(){const r=devicePixelRatio||1;RW=rc.clientWidth;RH=rc.clientHeight;rc.width=RW*r;rc.height=RH*r;rx.setTransform(r,0,0,r,0,0)}
+function seed(){pts=Array.from({length:40},()=>{const u=Math.random();return{u,v:.25+.55*u+(Math.random()-.5)*.18}});m=-.6+Math.random()*.4;b=.9}
+rsize();seed();addEventListener('resize',rsize);
+let steps=0;
+function rframe(){
+  let gm=0,gb=0;for(const p of pts){const e=m*p.u+b-p.v;gm+=e*p.u;gb+=e}
+  m-=.9*gm/pts.length;b-=.9*gb/pts.length;steps++;
+  const X=u=>30+u*(RW-60),Y=v=>RH-30-v*(RH-60);
+  rx.clearRect(0,0,RW,RH);
+  rx.strokeStyle='#1f362e';rx.lineWidth=1;for(let i=0;i<=4;i++){rx.beginPath();rx.moveTo(30,Y(i/4));rx.lineTo(RW-30,Y(i/4));rx.stroke()}
+  for(const p of pts){const e=m*p.u+b-p.v;rx.strokeStyle='rgba(255,207,107,.35)';rx.beginPath();rx.moveTo(X(p.u),Y(p.v));rx.lineTo(X(p.u),Y(p.v+e));rx.stroke();
+    rx.fillStyle='#7aa8ff';rx.beginPath();rx.arc(X(p.u),Y(p.v),4,0,7);rx.fill()}
+  rx.strokeStyle='#3df5a7';rx.lineWidth=3;rx.beginPath();rx.moveTo(X(0),Y(b));rx.lineTo(X(1),Y(m+b));rx.stroke();
+  let mse=0;for(const p of pts)mse+=(m*p.u+b-p.v)**2;mse/=pts.length;
+  rx.fillStyle='#8fa69d';rx.font='12px JetBrains Mono, monospace';rx.fillText(`step ${steps}  MSE ${mse.toFixed(4)}  y = ${m.toFixed(2)}x + ${b.toFixed(2)}`,30,22);
+  if(steps>400){seed();steps=0}
+  if(!reduce)requestAnimationFrame(rframe);
+}
+rframe();
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('hide');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('hide');io.observe(el)}});
+
+// copy contacts
+document.querySelectorAll('[data-copy]').forEach(btn=>btn.addEventListener('click',async()=>{
+  const em=btn.querySelector('em');
+  try{await navigator.clipboard.writeText(btn.dataset.copy);em.textContent='скопировано ✓'}catch{em.textContent=btn.dataset.copy}
+  setTimeout(()=>em.textContent='копировать',1800);
+}));
+</script>
 </body>
 </html>
