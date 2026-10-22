@@ -31,8 +31,15 @@ a{color:inherit}
 @media(max-width:600px){.top nav{display:none}}
 
 /* hero */
+.hero-top{display:grid;grid-template-columns:1fr minmax(220px,30%);gap:clamp(20px,4vw,56px);align-items:end}
+.me{position:relative;margin:0 14px 14px 0;max-width:100%}
+.me::before{content:"";position:absolute;inset:14px -14px -14px 14px;background:var(--blue);border:2px solid var(--ink)}
+.me img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--ink);filter:grayscale(1) contrast(1.05);transition:filter .5s}
+.me:hover img{filter:none}
+.me .hi{position:absolute;left:-26px;top:22px;background:var(--paper);border:2px solid var(--ink);font:800 18px var(--sans);text-transform:uppercase;padding:8px 14px;transform:rotate(-6deg)}
+@media(max-width:760px){.hero-top{grid-template-columns:1fr}.me{width:min(320px,80%);margin-left:26px}}
 .hero{padding-block:48px 0}
-h1{margin:0;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.82;letter-spacing:-.01em;font-size:clamp(56px,15vw,210px)}
+h1{margin:0;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.82;letter-spacing:-.01em;font-size:clamp(60px,11.5vw,168px)}
 h1 span{display:block}
 h1 .b{color:var(--blue)}
 .hero-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-top:2px solid var(--ink);margin-top:28px;padding-block:22px}
@@ -97,7 +104,10 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-
 </div></div>
 
 <header class="hero"><div class="in">
-  <h1><span>Саян</span><span class="b">Оразбек</span></h1>
+  <div class="hero-top">
+    <h1><span>Саян</span><span class="b">Оразбек</span></h1>
+    <figure class="me"><img src="photo.jpg" alt="Саян Оразбек" width="720" height="900"><span class="hi">Привет!</span></figure>
+  </div>
   <div class="hero-row">
     <p>Студент из Астаны. Пишу код, работаю с данными и быстро учусь новому.</p>
     <div class="btns">
