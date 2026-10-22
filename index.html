@@ -31,8 +31,8 @@ a{color:inherit}
 @media(max-width:600px){.top nav{display:none}}
 
 /* hero */
-.hero-top{display:grid;grid-template-columns:1fr minmax(220px,30%);gap:clamp(20px,4vw,56px);align-items:end}
-.me{position:relative;margin:0 14px 14px 0;max-width:100%}
+.hero-top{display:grid;grid-template-columns:1fr auto;gap:clamp(20px,4vw,56px);align-items:end}
+.me{position:relative;margin:0 14px 14px 0;width:clamp(200px,24vw,300px);max-width:100%}
 .me::before{content:"";position:absolute;inset:14px -14px -14px 14px;background:var(--blue);border:2px solid var(--ink)}
 .me img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--ink);filter:grayscale(1) contrast(1.05);transition:filter .5s}
 .me:hover img{filter:none}
