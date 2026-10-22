@@ -93,6 +93,7 @@ section{border-bottom:2px solid var(--ink)}
 .links em{font:13px var(--mono);font-style:normal;text-transform:uppercase;color:#9a9994;white-space:nowrap}
 footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:48px;color:#9a9994}
 
+@media print{@page{size:A4;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important}.top nav,.btns{display:none}section,.hero{break-inside:avoid}.row{padding-block:32px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
