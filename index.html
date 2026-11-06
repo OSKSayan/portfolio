@@ -28,7 +28,8 @@ a{color:inherit}
 .top nav{display:flex;gap:22px}
 .top nav a{text-decoration:none}
 .top nav a:hover{color:var(--blue)}
-@media(max-width:600px){.top nav{display:none}}
+.top nav .lang{border:1.5px solid var(--ink);padding:2px 8px}
+@media(max-width:600px){.top nav a:not(.lang){display:none}}
 
 /* hero */
 .hero-top{display:grid;grid-template-columns:1fr auto;gap:clamp(20px,4vw,56px);align-items:end}
@@ -101,7 +102,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-
 
 <div class="top"><div class="in">
   <div class="status mono"><i></i>Ищу стажировку</div>
-  <nav class="mono"><a href="#about">Обо мне</a><a href="#stack">Навыки</a><a href="#work">Работы</a><a href="#contact">Контакты</a></nav>
+  <nav class="mono"><a href="#about">Обо мне</a><a href="#stack">Навыки</a><a href="#work">Работы</a><a href="#contact">Контакты</a><a class="lang" href="en/">EN</a></nav>
 </div></div>
 
 <header class="hero"><div class="in">

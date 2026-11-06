@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sayan Orazbek</title>
+<meta name="description" content="Sayan Orazbek — student looking for an internship. Python, SQL, web, AI.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: poster-style. Huge condensed type, hard black rules, one cobalt accent block. */
+:root{
+  --paper:#efeee9;--ink:#0e0e0e;--mid:#6b6a66;--blue:#2537ff;--on:#ffffff;
+  --sans:"Archivo","Arial Narrow",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.5 var(--sans);overflow-x:hidden}
+a{color:inherit}
+.in{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.mono{font:13px var(--mono);text-transform:uppercase;letter-spacing:.06em}
+
+/* top bar */
+.top{border-bottom:2px solid var(--ink)}
+.top .in{display:flex;justify-content:space-between;align-items:center;height:56px;gap:16px}
+.status{display:flex;align-items:center;gap:8px}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--blue);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.top nav{display:flex;gap:22px}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--blue)}
+.top nav .lang{border:1.5px solid var(--ink);padding:2px 8px}
+@media(max-width:600px){.top nav a:not(.lang){display:none}}
+
+/* hero */
+.hero-top{display:grid;grid-template-columns:1fr auto;gap:clamp(20px,4vw,56px);align-items:end}
+.me{position:relative;margin:0 14px 14px 0;width:clamp(200px,24vw,300px);max-width:100%}
+.me::before{content:"";position:absolute;inset:14px -14px -14px 14px;background:var(--blue);border:2px solid var(--ink)}
+.me img{position:relative;display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--ink)}
+
+.me .hi{position:absolute;left:-26px;top:22px;background:var(--paper);border:2px solid var(--ink);font:800 18px var(--sans);text-transform:uppercase;padding:8px 14px;transform:rotate(-6deg)}
+@media(max-width:760px){.hero-top{grid-template-columns:1fr}.me{width:min(320px,80%);margin-left:26px}}
+.hero{padding-block:48px 0}
+h1{margin:0;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.82;letter-spacing:-.01em;font-size:clamp(60px,11.5vw,168px)}
+h1 span{display:block}
+h1 .b{color:var(--blue)}
+.hero-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-top:2px solid var(--ink);margin-top:28px;padding-block:22px}
+.hero-row p{margin:0;font-size:clamp(20px,2.4vw,28px);font-weight:500;line-height:1.25;max-width:30ch}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);text-decoration:none;font:700 17px var(--sans);padding:16px 26px;border:2px solid var(--ink);transition:background .15s,color .15s}
+.btn:hover{background:var(--blue);border-color:var(--blue);color:var(--on)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{color:var(--on)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:760px){.hero-row{grid-template-columns:1fr}}
+
+/* marquee */
+.marq{background:var(--blue);color:var(--on);overflow:hidden;border-block:2px solid var(--ink)}
+.track{display:flex;width:max-content;animation:run 28s linear infinite}
+.track span{font:800 clamp(28px,4vw,48px)/1 var(--sans);font-stretch:75%;text-transform:uppercase;padding:18px 28px;white-space:nowrap}
+.track span::after{content:"✦";margin-left:56px;font-size:.6em;vertical-align:.25em}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* sections as table rows */
+section{border-bottom:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:240px 1fr;gap:32px;padding-block:56px}
+.row>.mono{padding-top:8px}
+@media(max-width:760px){.row{grid-template-columns:1fr;gap:14px;padding-block:40px}}
+.big{margin:0;font-size:clamp(24px,3.2vw,40px);font-weight:600;line-height:1.2;letter-spacing:-.01em;max-width:28ch;text-wrap:balance}
+.big em{font-style:normal;color:var(--blue)}
+
+.stack{display:flex;flex-wrap:wrap;gap:10px}
+.stack span{font:700 20px var(--sans);font-stretch:85%;text-transform:uppercase;border:2px solid var(--ink);padding:10px 18px;transition:background .15s,color .15s}
+.stack span:hover{background:var(--ink);color:var(--paper)}
+.sub{margin-top:22px;color:var(--mid);font-size:16px}
+
+.item{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:baseline}
+.item h3{margin:0;font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:clamp(28px,4vw,48px);line-height:1}
+.item p{margin:0;color:var(--mid);grid-column:1/-1}
+.item .mono{color:var(--mid)}
+
+.proj{display:flex;justify-content:space-between;align-items:center;gap:20px;text-decoration:none;padding-block:4px}
+.proj:hover h3{color:var(--blue)}
+.proj .arrow{font-size:48px;font-weight:300;transition:transform .2s}
+.proj:hover .arrow{transform:translate(6px,-6px)}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper)}
+.contact .in{padding-block:72px 40px}
+.contact h2{margin:0 0 40px;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.85;font-size:clamp(44px,10vw,140px)}
+.contact h2 span{color:var(--blue)}
+.links{display:grid;border-top:2px solid var(--paper)}
+.links button,.links a{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:2px solid var(--paper);padding-block:20px;font:600 clamp(20px,3vw,32px) var(--sans);transition:color .15s,padding .2s}
+.links button:hover,.links a:hover{color:var(--blue);padding-left:12px}
+.links button:focus-visible,.links a:focus-visible{outline:3px solid var(--blue)}
+.links em{font:13px var(--mono);font-style:normal;text-transform:uppercase;color:#9a9994;white-space:nowrap}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:48px;color:#9a9994}
+
+@media print{@page{size:A4;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important}.top nav,.btns{display:none}section,.hero{break-inside:avoid}.row{padding-block:32px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="in">
+  <div class="status mono"><i></i>Open to internships</div>
+  <nav class="mono"><a href="#about">About</a><a href="#stack">Skills</a><a href="#work">Work</a><a href="#contact">Contact</a><a class="lang" href="../">RU</a></nav>
+</div></div>
+
+<header class="hero"><div class="in">
+  <div class="hero-top">
+    <h1><span>Sayan</span><span class="b">Orazbek</span></h1>
+    <figure class="me"><img src="../photo.jpg" alt="Sayan Orazbek" width="720" height="900"><span class="hi">Hi there!</span></figure>
+  </div>
+  <div class="hero-row">
+    <p>Student from Astana. I write code, work with data and learn new things fast.</p>
+    <div class="btns">
+      <a class="btn" href="#contact">Get in touch ↘</a>
+      <a class="btn ghost" href="https://github.com/OSKSayan" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</div></header>
+
+<div class="marq" aria-hidden="true"><div class="track">
+  <span>Python</span><span>SQL</span><span>HTML / CSS</span><span>JavaScript</span><span>AI tools</span><span>Git</span>
+  <span>Python</span><span>SQL</span><span>HTML / CSS</span><span>JavaScript</span><span>AI tools</span><span>Git</span>
+</div></div>
+
+<main>
+<section id="about"><div class="in row">
+  <div class="mono">About</div>
+  <p class="big">I study <em>Data Science</em> at AIU. I build working prototypes with AI tools in a couple of evenings and see tasks through to the end.</p>
+</div></section>
+
+<section id="stack"><div class="in row">
+  <div class="mono">Skills</div>
+  <div>
+    <div class="stack"><span>Python</span><span>SQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git / GitHub</span><span>AI / LLM</span><span>Math</span></div>
+    <p class="sub">Analytical thinking · responsibility · attention to detail · quick to adapt</p>
+  </div>
+</div></section>
+
+<section id="work"><div class="in row">
+  <div class="mono">Work</div>
+  <a class="proj" href="https://github.com/OSKSayan/portfolio" target="_blank" rel="noopener">
+    <div class="item"><h3>This website</h3><p>A responsive portfolio site built from scratch, no templates or frameworks. HTML, CSS, JS, GitHub Pages.</p></div>
+    <span class="arrow">↗</span>
+  </a>
+</div></section>
+
+<section id="edu"><div class="in row">
+  <div class="mono">Education</div>
+  <div class="item"><h3>Astana International University</h3><span class="mono">— 2029</span><p>Bachelor’s, Data Science</p></div>
+</div></section>
+</main>
+
+<section class="contact" id="contact"><div class="in">
+  <h2>Let’s<br><span>talk</span></h2>
+  <div class="links">
+    <button type="button" data-copy="sayanorazbek1@gmail.com">sayanorazbek1@gmail.com <em>Copy</em></button>
+    <button type="button" data-copy="+77051045211">+7 705 104 52 11 <em>Copy</em></button>
+    <a href="https://github.com/OSKSayan" target="_blank" rel="noopener">github.com/OSKSayan <em>Open ↗</em></a>
+  </div>
+  <footer class="mono"><span>© 2026 Sayan Orazbek</span><span>Astana</span></footer>
+</div></section>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{
+  const em=b.querySelector('em');
+  try{await navigator.clipboard.writeText(b.dataset.copy);em.textContent='Copied ✓'}catch{em.textContent='Select manually'}
+  setTimeout(()=>em.textContent='Copy',1800);
+}));
+</script>
+</body>
+</html>
