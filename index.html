@@ -2,172 +2,386 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Саян Оразбек</title>
-<meta name="description" content="Саян Оразбек — студент, ищу стажировку. Python, SQL, веб, AI.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101217">
+<meta name="description" content="Саян Оразбек. Веб-разработка, данные и автоматизация. Избранные проекты с GitHub.">
+<title>Саян Оразбек — Портфолио</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff8057'/%3E%3Cpath d='M8 11l5 5-5 5m8 0h8' fill='none' stroke='%23101217' stroke-width='2.5'/%3E%3C/svg%3E">
 <style>
-/* Layout: poster-style. Huge condensed type, hard black rules, one cobalt accent block. */
-:root{
-  --paper:#efeee9;--ink:#0e0e0e;--mid:#6b6a66;--blue:#2537ff;--on:#ffffff;
-  --sans:"Archivo","Arial Narrow",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.5 var(--sans);overflow-x:hidden}
-a{color:inherit}
-.in{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.mono{font:13px var(--mono);text-transform:uppercase;letter-spacing:.06em}
-
-/* top bar */
-.top{border-bottom:2px solid var(--ink)}
-.top .in{display:flex;justify-content:space-between;align-items:center;height:56px;gap:16px}
-.status{display:flex;align-items:center;gap:8px}
-.status i{width:10px;height:10px;border-radius:50%;background:var(--blue);animation:pulse 1.6s infinite}
-@keyframes pulse{50%{opacity:.25}}
-.top nav{display:flex;gap:22px}
-.top nav a{text-decoration:none}
-.top nav a:hover{color:var(--blue)}
-.top nav .lang{border:1.5px solid var(--ink);padding:2px 8px}
-@media(max-width:600px){.top nav a:not(.lang){display:none}}
-
-/* hero */
-.hero-top{display:grid;grid-template-columns:1fr auto;gap:clamp(20px,4vw,56px);align-items:end}
-.me{position:relative;margin:0 14px 14px 0;width:clamp(200px,24vw,300px);max-width:100%}
-.me::before{content:"";position:absolute;inset:14px -14px -14px 14px;background:var(--blue);border:2px solid var(--ink)}
-.me img{position:relative;display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--ink)}
-
-.me .hi{position:absolute;left:-26px;top:22px;background:var(--paper);border:2px solid var(--ink);font:800 18px var(--sans);text-transform:uppercase;padding:8px 14px;transform:rotate(-6deg)}
-@media(max-width:760px){.hero-top{grid-template-columns:1fr}.me{width:min(320px,80%);margin-left:26px}}
-.hero{padding-block:48px 0}
-h1{margin:0;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.82;letter-spacing:-.01em;font-size:clamp(60px,11.5vw,168px)}
-h1 span{display:block}
-h1 .b{color:var(--blue)}
-.hero-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-top:2px solid var(--ink);margin-top:28px;padding-block:22px}
-.hero-row p{margin:0;font-size:clamp(20px,2.4vw,28px);font-weight:500;line-height:1.25;max-width:30ch}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);text-decoration:none;font:700 17px var(--sans);padding:16px 26px;border:2px solid var(--ink);transition:background .15s,color .15s}
-.btn:hover{background:var(--blue);border-color:var(--blue);color:var(--on)}
-.btn.ghost{background:transparent;color:var(--ink)}
-.btn.ghost:hover{color:var(--on)}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-@media(max-width:760px){.hero-row{grid-template-columns:1fr}}
-
-/* marquee */
-.marq{background:var(--blue);color:var(--on);overflow:hidden;border-block:2px solid var(--ink)}
-.track{display:flex;width:max-content;animation:run 28s linear infinite}
-.track span{font:800 clamp(28px,4vw,48px)/1 var(--sans);font-stretch:75%;text-transform:uppercase;padding:18px 28px;white-space:nowrap}
-.track span::after{content:"✦";margin-left:56px;font-size:.6em;vertical-align:.25em}
-@keyframes run{to{transform:translateX(-50%)}}
-
-/* sections as table rows */
-section{border-bottom:2px solid var(--ink)}
-.row{display:grid;grid-template-columns:240px 1fr;gap:32px;padding-block:56px}
-.row>.mono{padding-top:8px}
-@media(max-width:760px){.row{grid-template-columns:1fr;gap:14px;padding-block:40px}}
-.big{margin:0;font-size:clamp(24px,3.2vw,40px);font-weight:600;line-height:1.2;letter-spacing:-.01em;max-width:28ch;text-wrap:balance}
-.big em{font-style:normal;color:var(--blue)}
-
-.stack{display:flex;flex-wrap:wrap;gap:10px}
-.stack span{font:700 20px var(--sans);font-stretch:85%;text-transform:uppercase;border:2px solid var(--ink);padding:10px 18px;transition:background .15s,color .15s}
-.stack span:hover{background:var(--ink);color:var(--paper)}
-.sub{margin-top:22px;color:var(--mid);font-size:16px}
-
-.item{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:baseline}
-.item h3{margin:0;font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:clamp(28px,4vw,48px);line-height:1}
-.item p{margin:0;color:var(--mid);grid-column:1/-1}
-.item .mono{color:var(--mid)}
-
-.proj{display:flex;justify-content:space-between;align-items:center;gap:20px;text-decoration:none;padding-block:4px}
-.proj:hover h3{color:var(--blue)}
-.proj .arrow{font-size:48px;font-weight:300;transition:transform .2s}
-.proj:hover .arrow{transform:translate(6px,-6px)}
-
-/* contact */
-.contact{background:var(--ink);color:var(--paper)}
-.contact .in{padding-block:72px 40px}
-.contact h2{margin:0 0 40px;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.85;font-size:clamp(44px,10vw,140px)}
-.contact h2 span{color:var(--blue)}
-.links{display:grid;border-top:2px solid var(--paper)}
-.links button,.links a{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:2px solid var(--paper);padding-block:20px;font:600 clamp(20px,3vw,32px) var(--sans);transition:color .15s,padding .2s}
-.links button:hover,.links a:hover{color:var(--blue);padding-left:12px}
-.links button:focus-visible,.links a:focus-visible{outline:3px solid var(--blue)}
-.links em{font:13px var(--mono);font-style:normal;text-transform:uppercase;color:#9a9994;white-space:nowrap}
-footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:48px;color:#9a9994}
-
-@media print{@page{size:A4;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important}.top nav,.btns{display:none}section,.hero{break-inside:avoid}.row{padding-block:32px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root{color-scheme:dark;--bg:#101217;--panel:#151820;--ink:#f5f4ef;--muted:#aab0bb;--line:#2d323e;--orange:#ff8057;--mono:ui-monospace,"SF Mono",Consolas,monospace;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}body{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}button[disabled]{cursor:default}.frame{width:min(1232px,calc(100% - 104px));margin-inline:auto}.mono,.eyebrow{font-family:var(--mono)}.orange,h2 span{color:var(--orange)}.skip,.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip:focus{width:auto;height:auto;clip-path:none;z-index:5;top:12px;left:12px;padding:12px;background:var(--ink);color:var(--bg)}
+.site-header{border-bottom:1px solid var(--line)}.header-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:inline-flex;align-items:center;gap:12px;font:700 1.04rem var(--mono);letter-spacing:-.06em}.brand-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:var(--orange);color:#171217;letter-spacing:-.11em;padding-right:2px}.header-inner nav{display:flex;gap:34px;color:var(--muted);font-size:.94rem}.header-inner a:hover,.footer a:hover{color:var(--orange)}.github-nav{font: .89rem var(--mono);border:1px solid var(--line);border-radius:7px;padding:10px 13px;white-space:nowrap}.external{margin-left:5px;color:var(--orange)}
+.hero{min-height:590px;display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:clamp(24px,5vw,80px);padding-block:75px 82px}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--orange);font-size:.78rem;letter-spacing:.14em;font-weight:650;margin:0 0 20px}.eyebrow>span{width:15px;height:1px;background:currentColor;display:inline-block}.hero h1{font-size:clamp(4rem,8.6vw,9rem);line-height:.85;letter-spacing:-.075em;margin:0 0 28px;font-weight:790}.hero h1 strong{font-weight:inherit}.hero h1 strong span{color:var(--orange)}.subtitle{font-weight:650;font-size:clamp(1.1rem,1.9vw,1.38rem);letter-spacing:-.035em;margin:0 0 12px}.intro,.section-description,.about-copy p{font-size:1.05rem;line-height:1.65;color:var(--muted);margin:0 0 25px;max-width:44ch}.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 17px;border:1px solid var(--line);border-radius:7px;background:#191d26;font-weight:700;font-size:.94rem}.button:hover{border-color:var(--orange);color:var(--orange)}.button.primary{border-color:transparent;background:var(--orange);color:#171217}.button.primary:hover{background:#ffad90}
+.visual{overflow:hidden;position:relative;aspect-ratio:1.19;border:1px solid #37323b;border-radius:14px;background:radial-gradient(ellipse at 50% 65%,#2b1c23 0%,#171821 47%,#141720 77%);isolation:isolate}.visual::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#a8b5e00b 1px,transparent 1px),linear-gradient(90deg,#a8b5e00b 1px,transparent 1px);background-size:30px 30px;z-index:-1}.visual canvas{display:block;width:100%;height:100%;position:absolute;inset:0;touch-action:pan-y}.visual-top,.visual-bottom{position:absolute;z-index:1;left:17px;right:17px;display:flex;align-items:center;gap:9px;color:#a7acb7;font-size:.70rem;letter-spacing:.085em;pointer-events:none}.visual-top{top:17px}.visual-bottom{bottom:15px;justify-content:space-between}.axes{margin-left:auto}.indicator{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px #ff805780}.visual button{pointer-events:auto;background:#171923;border:1px solid var(--line);border-radius:5px;padding:6px 9px;font-size:.74rem}.visual button:hover{color:var(--orange)}
+section[id]{scroll-margin-top:24px}.projects{border-top:1px solid var(--line);padding-block:45px 72px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:25px}.section-head .eyebrow,.content-section .eyebrow{margin-bottom:13px}h2{margin:0;font-size:clamp(2.8rem,6.2vw,5.5rem);letter-spacing:-.075em;line-height:1}.filters,.stack-buttons{display:flex;flex-wrap:wrap;gap:6px}.filters{padding:5px;background:#151820;border:1px solid var(--line);border-radius:8px}.filters button,.stack-buttons button{padding:8px 12px;border:1px solid transparent;background:transparent;border-radius:5px;color:var(--muted);font-size:.87rem;white-space:nowrap}.filters button:hover,.stack-buttons button:hover{color:var(--ink)}.filters button[aria-pressed=true],.stack-buttons button[aria-pressed=true]{background:#392923;color:#ff9d7d;border-color:#664433}.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.project-card{display:flex;flex-direction:column;min-width:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:border-color .2s,transform .2s}.project-card:hover{border-color:#8a5747;transform:translateY(-3px)}.project-card[hidden]{display:none}.card-copy{padding:17px;display:flex;flex:1;flex-direction:column}.card-top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font:.76rem var(--mono)}.card-top a:hover{color:var(--orange)}h3{margin:10px 0 7px;font-size:1.42rem;letter-spacing:-.04em}.card-copy p{margin:0 0 16px;color:var(--muted);line-height:1.55;font-size:.96rem}.tags{display:flex;flex-wrap:wrap;gap:5px;padding:0;margin:0 0 15px;list-style:none}.tags li{color:#c3c8d1;font:.72rem var(--mono);border:1px solid var(--line);padding:4px 7px;border-radius:4px}.card-action{width:100%;margin-top:auto;text-align:left;border:0;border-top:1px solid var(--line);background:none;padding:12px 0 0;color:var(--orange);font-size:.87rem;font-weight:700}.card-action:hover{text-decoration:underline}
+.preview{height:165px;position:relative;display:grid;place-items:center;overflow:hidden;color:var(--tone);background-color:var(--surface);background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:19px 19px;border-bottom:1px solid var(--line);padding:22px}.preview[data-art=screen]{--tone:#ffa480;--surface:#261c27}.preview[data-art=fitness]{--tone:#b5ef80;--surface:#20291f}.preview[data-art=react]{--tone:#f8bb7c;--surface:#30251d}.preview[data-art=quiz]{--tone:#d2bbff;--surface:#272036}.preview[data-art=database]{--tone:#84dbff;--surface:#182739}.preview[data-art=backup]{--tone:#ff8b76;--surface:#322127}.preview-art{width:min(100%,234px);padding:11px 13px;border:1px solid currentColor;border-radius:7px;background:#12141be6;box-shadow:0 10px 32px #0007;font:.79rem/1.65 var(--mono);transform:rotate(-3deg)}.preview-art::before{content:"";display:block;width:5px;height:5px;background:currentColor;border-radius:50%;box-shadow:9px 0 currentColor,18px 0 currentColor;margin-bottom:9px;opacity:.62}.preview-art span{display:block;white-space:nowrap}.preview-art span+span{opacity:.75}
+.content-section{border-top:1px solid var(--line);padding-block:60px;display:grid;grid-template-columns:.9fr 1.1fr;gap:35px}.section-description{margin:18px 0 0}.stack-panel{padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.stack-buttons button{border-color:var(--line);color:var(--ink)}.stack-detail{min-height:102px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);line-height:1.6}.stack-detail p{margin:0 0 8px}.stack-detail button{margin:4px 8px 0 0;padding:4px 9px;background:none;border:1px solid var(--line);border-radius:4px;color:var(--orange);font-size:.83rem}.stack-detail button:hover{border-color:var(--orange)}.footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;padding-block:22px;color:var(--muted);font:.8rem var(--mono)}
+dialog{color:var(--ink);background:var(--panel);border:1px solid #4c4147;border-radius:14px;padding:0;width:min(620px,calc(100% - 28px));max-height:calc(100% - 28px);overscroll-behavior:contain}dialog::backdrop{background:#090a10c9;backdrop-filter:blur(6px)}body:has(dialog[open]){overflow:hidden}.dialog-body{padding:26px;position:relative}.dialog-body .preview{border:1px solid var(--line);border-radius:8px;margin:14px 0 18px}.dialog-body h2{font-size:clamp(2rem,6vw,3.4rem);padding-right:44px}.dialog-body p:not(.eyebrow),.dialog-body li:not(.tags li){color:var(--muted);line-height:1.55}.dialog-body h3{font-size:1.13rem}.dialog-body ul:not(.tags){padding-left:22px}.dialog-body .button{margin-right:8px;margin-top:7px}.close{position:absolute;right:15px;top:15px;width:38px;height:38px;border:1px solid var(--line);border-radius:6px;background:#1d212c;font-size:23px;line-height:1;z-index:2}.close:hover{color:var(--orange)}
+@media(max-width:1000px){.frame{width:calc(100% - 64px)}.hero{min-height:0;padding-block:65px 61px}.hero h1{font-size:clamp(3.7rem,9.4vw,6.8rem)}.intro{font-size:1rem}}
+@media(max-width:760px){.frame{width:calc(100% - 36px)}.header-inner{height:auto;min-height:60px;gap:10px;flex-wrap:wrap;padding-top:10px}.header-inner nav{order:3;width:100%;padding:5px 0 11px;gap:24px}.hero{grid-template-columns:1fr;gap:26px;padding-block:41px 38px}.hero h1{font-size:clamp(3.9rem,14vw,7rem);margin-bottom:19px}.hero .eyebrow{margin-bottom:15px}.intro{margin-bottom:18px}.visual{aspect-ratio:1.52}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column;gap:17px}.projects{padding-block:35px 45px}.content-section{padding-block:40px;gap:20px;grid-template-columns:1fr}}
+@media(max-width:475px){.project-grid{grid-template-columns:1fr}.filters button{padding-inline:9px}.preview{height:140px}.footer{font-size:.73rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+.preview[data-art=editor]{--tone:#d2bbff;--surface:#272036}.preview[data-art=plan]{--tone:#79ead3;--surface:#1b2b2f}.preview[data-art=fitness] .preview-art,.preview[data-art=plan] .preview-art{transform:rotate(3deg)}.preview[data-art=database] .preview-art{transform:none}.preview[data-art=editor] .preview-art{transform:rotate(2deg)}
 </style>
 </head>
 <body>
-
-<div class="top"><div class="in">
-  <div class="status mono"><i></i>Ищу стажировку</div>
-  <nav class="mono"><a href="#about">Обо мне</a><a href="#stack">Навыки</a><a href="#work">Работы</a><a href="#contact">Контакты</a><a class="lang" href="en/">EN</a></nav>
-</div></div>
-
-<header class="hero"><div class="in">
-  <div class="hero-top">
-    <h1><span>Саян</span><span class="b">Оразбек</span></h1>
-    <figure class="me"><img src="photo.jpg" alt="Саян Оразбек" width="720" height="900"><span class="hi">Привет!</span></figure>
+<a class="skip" href="#projects">К содержимому</a>
+<header class="site-header" id="top">
+  <div class="frame header-inner">
+    <a href="#top" class="brand" aria-label="Саян Оразбек, начало"><span class="brand-icon" aria-hidden="true">&gt;_</span><span>OSKSayan<span class="orange">.</span></span></a>
+    <nav aria-label="Разделы"><a href="#projects">Проекты</a><a href="#stack">Стек</a><a href="#about">Обо мне</a></nav>
+    <a class="github-nav" href="https://github.com/OSKSayan" target="_blank" rel="noopener">GitHub</a>
   </div>
-  <div class="hero-row">
-    <p>Студент из Астаны. Пишу код, работаю с данными и быстро учусь новому.</p>
-    <div class="btns">
-      <a class="btn" href="#contact">Связаться ↘</a>
-      <a class="btn ghost" href="https://github.com/OSKSayan" target="_blank" rel="noopener">GitHub ↗</a>
+</header>
+<main class="frame">
+  <section class="hero" aria-labelledby="intro">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span> ASTANA, KZ / DATA SCIENCE</p>
+      <h1 id="intro">Саян<br><strong>Оразбек<span>.</span></strong></h1>
+      <p class="subtitle">Веб-разработка, данные и автоматизация</p>
+      <p class="intro">Учусь на Data Science в AIU. Собираю сайты и инструменты, которые помогают учиться, тренироваться и решать повседневные задачи.</p>
+      <a class="button primary" href="#projects">Смотреть проекты</a>
     </div>
-  </div>
-</div></header>
+    <div class="visual">
+      <div class="visual-top mono"><span class="indicator"></span> ПРОЦЕДУРНЫЙ РЕЛЬЕФ <span class="axes" aria-hidden="true">X / Y / Z</span></div>
+      <canvas id="terrain" width="750" height="540" aria-hidden="true"></canvas>
+      <div class="visual-bottom mono"><span>3D · CANVAS</span><button id="motion" type="button" aria-pressed="false">Пауза</button></div>
+    </div>
+  </section>
 
-<div class="marq" aria-hidden="true"><div class="track">
-  <span>Python</span><span>SQL</span><span>HTML / CSS</span><span>JavaScript</span><span>AI-инструменты</span><span>Git</span>
-  <span>Python</span><span>SQL</span><span>HTML / CSS</span><span>JavaScript</span><span>AI-инструменты</span><span>Git</span>
-</div></div>
+  <section class="projects" id="projects" aria-labelledby="project-heading">
+    <div class="section-head"><div><p class="eyebrow"><span></span> GITHUB / ИЗБРАННОЕ</p><h2 id="project-heading">Проекты<span>.</span></h2></div>
+      <div class="filters" role="group" aria-label="Фильтр проектов">
+        <button type="button" aria-pressed="true" data-filter="all">Все</button>
+        <button type="button" aria-pressed="false" data-filter="web">Веб</button>
+        <button type="button" aria-pressed="false" data-filter="data">Данные</button>
+        <button type="button" aria-pressed="false" data-filter="tools">Утилиты</button>
+      </div>
+    </div>
+    <div class="project-grid" id="project-grid"></div>
+    <p class="sr-only" aria-live="polite" id="results"></p>
+    <noscript>Избранные проекты доступны в <a href="https://github.com/OSKSayan?tab=repositories">репозиториях GitHub</a>.</noscript>
+  </section>
 
-<main>
-<section id="about"><div class="in row">
-  <div class="mono">Обо мне</div>
-  <p class="big">Учусь на <em>Data Science</em> в AIU. Собираю рабочие прототипы с AI-инструментами за пару вечеров и довожу задачи до результата.</p>
-</div></section>
+  <section id="stack" class="stack content-section" aria-labelledby="stack-heading">
+    <div><p class="eyebrow"><span></span> ТЕХНОЛОГИИ</p><h2 id="stack-heading">Мой стек<span>.</span></h2><p class="section-description">Выбери технологию, чтобы увидеть, где я её использовал.</p></div>
+    <div class="stack-panel">
+      <div class="stack-buttons" id="stack-buttons" role="group" aria-label="Выбор технологии"></div>
+      <div class="stack-detail" id="stack-detail" aria-live="polite"></div>
+    </div>
+  </section>
 
-<section id="stack"><div class="in row">
-  <div class="mono">Навыки</div>
-  <div>
-    <div class="stack"><span>Python</span><span>SQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git / GitHub</span><span>AI / LLM</span><span>Математика</span></div>
-    <p class="sub">Аналитическое мышление · ответственность · внимание к деталям · быстро адаптируюсь</p>
-  </div>
-</div></section>
-
-<section id="work"><div class="in row">
-  <div class="mono">Работы</div>
-  <a class="proj" href="https://github.com/OSKSayan/portfolio" target="_blank" rel="noopener">
-    <div class="item"><h3>Этот сайт</h3><p>Адаптивный сайт-портфолио с нуля, без шаблонов и фреймворков. HTML, CSS, JS, GitHub Pages.</p></div>
-    <span class="arrow">↗</span>
-  </a>
-</div></section>
-
-<section id="edu"><div class="in row">
-  <div class="mono">Учёба</div>
-  <div class="item"><h3>Astana International University</h3><span class="mono">— 2029</span><p>Бакалавриат, Data Science</p></div>
-</div></section>
+  <section id="about" class="about content-section" aria-labelledby="about-heading">
+    <div><p class="eyebrow"><span></span> ПРОФИЛЬ</p><h2 id="about-heading">Обо мне<span>.</span></h2></div>
+    <div class="about-copy"><p>Я Саян, студент Astana International University. Изучаю Data Science и пробую разные форматы разработки: от веб-интерфейсов до баз данных и автоматизации.</p><p>Люблю проекты, которые можно открыть и сразу попробовать. Поэтому здесь собрал работы с исходным кодом и коротким разбором того, как они устроены.</p><a class="button" href="https://github.com/OSKSayan" target="_blank" rel="noopener">Профиль на GitHub</a></div>
+  </section>
 </main>
-
-<section class="contact" id="contact"><div class="in">
-  <h2>Давайте<br><span>поговорим</span></h2>
-  <div class="links">
-    <button type="button" data-copy="sayanorazbek1@gmail.com">sayanorazbek1@gmail.com <em>Копировать</em></button>
-    <button type="button" data-copy="+77051045211">+7 705 104 52 11 <em>Копировать</em></button>
-    <a href="https://github.com/OSKSayan" target="_blank" rel="noopener">github.com/OSKSayan <em>Открыть ↗</em></a>
+<footer class="frame footer"><span>Саян Оразбек · Астана, Казахстан</span><a href="#top">К началу</a></footer>
+<dialog id="project-dialog" aria-labelledby="dialog-title">
+  <div class="dialog-body">
+    <form method="dialog"><button class="close" aria-label="Закрыть проект" autofocus>×</button></form>
+    <div id="dialog-content"></div>
   </div>
-  <footer class="mono"><span>© 2026 Саян Оразбек</span><span>Астана</span></footer>
-</div></section>
-
+</dialog>
 <script>
-document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{
-  const em=b.querySelector('em');
-  try{await navigator.clipboard.writeText(b.dataset.copy);em.textContent='Скопировано ✓'}catch{em.textContent='Выделите вручную'}
-  setTimeout(()=>em.textContent='Копировать',1800);
-}));
+const projects = [
+  {
+    id: 'fitness-tracker', title: 'Фитнес-трекер', category: 'web', art: 'fitness',
+    preview: ['ТРЕНИРОВКИ · ПИТАНИЕ', 'Вес и замеры / динамика', '▂ ▃ ▂ ▅ ▃ ▆ ▇'],
+    summary: 'Дневник тренировок и питания с графиком прогресса.',
+    stack: ['React', 'TypeScript', 'PWA', 'Supabase'],
+    points: ['Планы тренировок A/B, журнал подходов и история предыдущих весов.', 'График веса и замеров, учёт воды, шагов и питания.', 'Установка на телефон, офлайн-режим и перенос данных через JSON.'],
+    demo: 'https://osksayan.github.io/fitness-tracker/'
+  },
+  {
+    id: 'ScreenQA', title: 'ScreenQA', category: 'tools', art: 'screen',
+    preview: ['┌ OCR / WINDOWS ┐', 'Область экрана → текст', 'Распознано: 1 фрагмент'],
+    summary: 'Windows-утилита распознаёт текст в выделенной области экрана.',
+    stack: ['C#', '.NET 8', 'WPF', 'Windows OCR'],
+    points: ['Выделение области по горячей клавише, как в инструменте снимков экрана.', 'Распознавание текста на устройстве через Windows OCR.', 'Распознанный текст можно отредактировать и отправить выбранному ИИ-провайдеру.'],
+    demo: 'https://github.com/OSKSayan/ScreenQA/releases',
+    demoLabel: 'Релизы'
+  },
+  {
+    id: 'britva-react', title: 'BRITVA', category: 'web', art: 'react',
+    preview: ['BRITVA / BOOKING', 'Услуга · Мастер · Дата', '10:00   12:30   14:00'],
+    summary: 'Веб-интерфейс записи в барбершоп с выбором мастера и времени.',
+    stack: ['React', 'TypeScript', 'Vite', 'shadcn/ui'],
+    points: ['Каталог услуг с ценами и карточки мастеров.', 'Календарь на русском языке и выбор свободного времени в форме записи.', 'Интерфейс на React с компонентами shadcn/ui.']
+  },
+  {
+    id: 'pharmacy-postgres-example', title: 'Аптека', category: 'data', art: 'database',
+    preview: ['POSTGRESQL / WEB API', 'sql/  →  pharmacy', 'api/  →  Swagger'],
+    summary: 'Учебный пример работы PostgreSQL и ASP.NET Core Web API.',
+    stack: ['PostgreSQL', 'SQL', 'C#', 'ASP.NET Core'],
+    points: ['SQL-скрипты для создания базы, наполнения и демонстрационных сценариев.', 'Отдельные примеры транзакций с пошаговым запуском.', 'Web API на C#, веб-страница и документация Swagger.']
+  },
+  {
+    id: 'photo-editor', title: 'Фоторедактор', category: 'tools', art: 'editor',
+    preview: ['CANVAS / PHOTO EDITOR', '▧   Выделение · Штамп', '↶   PNG / JPG'],
+    summary: 'Редактор изображений в браузере с локальной обработкой фото.',
+    stack: ['HTML / CSS', 'JavaScript', 'Canvas'],
+    points: ['Выделение и перенос фрагментов, штамп, кисть, пипетка и текст.', 'Жесты масштабирования на телефонах и история отмены.', 'Экспорт в PNG и JPG. Вся обработка происходит в браузере.']
+  },
+  {
+    id: 'sayan-training', title: 'План тренировок', category: 'web', art: 'plan',
+    preview: ['НЕДЕЛЬНЫЙ ПЛАН', 'ПН   ВТ   СР   ЧТ   ПТ', 'Упражнения · Видео'],
+    summary: 'Недельное расписание тренировок с видео техники упражнений.',
+    stack: ['HTML / CSS', 'JavaScript'],
+    points: ['Выбор дня недели и просмотр программы на этот день.', 'Видео с техникой упражнений рядом с планом.']
+  }
+];
+
+const categories = { web: 'Веб', data: 'Данные', tools: 'Утилиты' };
+
+const technologies = {
+  React: 'Компоненты интерфейса и управление состоянием.',
+  TypeScript: 'Типизация данных и состояния интерфейса.',
+  'HTML / CSS': 'Структура страниц и адаптивная вёрстка.',
+  JavaScript: 'Взаимодействия и обработка данных в браузере.',
+  Canvas: 'Работа с изображением и инструментами рисования.',
+  PostgreSQL: 'Хранение данных и выполнение SQL-запросов.',
+  SQL: 'Скрипты, запросы и примеры транзакций.',
+  'C#': 'Десктопная разработка и серверный API.',
+  PWA: 'Установка веб-приложения и работа без сети.'
+};
+
+const grid = document.querySelector('#project-grid');
+const dialog = document.querySelector('#project-dialog');
+const dialogContent = document.querySelector('#dialog-content');
+const githubBase = 'https://github.com/OSKSayan/';
+let opener;
+
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+
+function externalLink(label, url, className) {
+  const link = element('a', label, className);
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  return link;
+}
+
+function projectPreview(project) {
+  const preview = element('div', '', 'preview');
+  preview.dataset.art = project.art;
+  preview.setAttribute('aria-hidden', 'true');
+  const art = element('div', '', 'preview-art');
+  for (const line of project.preview) art.append(element('span', line));
+  preview.append(art);
+  return preview;
+}
+
+function projectTags(project) {
+  const list = element('ul', '', 'tags');
+  for (const technology of project.stack) list.append(element('li', technology));
+  return list;
+}
+
+function openProject(project, button) {
+  opener = button;
+  const title = element('h2', project.title);
+  title.id = 'dialog-title';
+  const details = element('ul');
+  for (const point of project.points) details.append(element('li', point));
+  dialogContent.replaceChildren(
+    element('p', categories[project.category], 'eyebrow'),
+    title, projectPreview(project), element('p', project.summary),
+    projectTags(project), element('h3', 'Как устроен проект'), details,
+    externalLink('Код на GitHub', githubBase + project.id, 'button primary')
+  );
+  if (project.demo) dialogContent.append(externalLink(project.demoLabel || 'Открыть приложение', project.demo, 'button'));
+  dialog.showModal();
+}
+
+for (const project of projects) {
+  const card = element('article', '', 'project-card');
+  card.dataset.category = project.category;
+  const copy = element('div', '', 'card-copy');
+  const top = element('div', '', 'card-top');
+  top.append(element('span', categories[project.category]), externalLink('GitHub', githubBase + project.id));
+  const button = element('button', 'Разбор проекта', 'card-action');
+  button.type = 'button';
+  button.setAttribute('aria-label', 'Разбор проекта — ' + project.title);
+  button.addEventListener('click', () => openProject(project, button));
+  copy.append(top, element('h3', project.title), element('p', project.summary), projectTags(project), button);
+  card.append(projectPreview(project), copy);
+  grid.append(card);
+}
+
+const filters = [...document.querySelectorAll('[data-filter]')];
+for (const filter of filters) {
+  filter.addEventListener('click', () => {
+    for (const option of filters) option.setAttribute('aria-pressed', String(option === filter));
+    const category = filter.dataset.filter;
+    let count = 0;
+    for (const card of grid.children) {
+      card.hidden = category !== 'all' && card.dataset.category !== category;
+      if (!card.hidden) count++;
+    }
+    document.querySelector('#results').textContent = 'Показано проектов: ' + count;
+  });
+}
+
+dialog.addEventListener('click', event => {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener('close', () => opener?.focus());
+
+const stackButtons = document.querySelector('#stack-buttons');
+const stackDetail = document.querySelector('#stack-detail');
+
+function showTechnology(name, selectedButton) {
+  for (const button of stackButtons.children) button.setAttribute('aria-pressed', String(button === selectedButton));
+  stackDetail.replaceChildren(element('p', technologies[name]));
+  for (const project of projects.filter(project => project.stack.includes(name))) {
+    const button = element('button', project.title);
+    button.type = 'button';
+    button.addEventListener('click', () => openProject(project, button));
+    stackDetail.append(button);
+  }
+}
+
+for (const name of Object.keys(technologies)) {
+  const button = element('button', name);
+  button.type = 'button';
+  button.setAttribute('aria-pressed', 'false');
+  button.addEventListener('click', () => showTechnology(name, button));
+  stackButtons.append(button);
+}
+showTechnology('React', stackButtons.firstElementChild);
+
+function setupTerrain() {
+  const canvas = document.querySelector('#terrain');
+  const context = canvas.getContext('2d');
+  const button = document.querySelector('#motion');
+  if (!context) {
+    button.hidden = true;
+    return;
+  }
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  const resolution = 34;
+  let paused = preference.matches;
+  let visible = false;
+  let frame = 0;
+  let time = 0;
+  let previousTime = 0;
+  let view = 0;
+  let targetView = 0;
+  let width = 1;
+  let height = 1;
+
+  function draw() {
+    context.clearRect(0, 0, width, height);
+    const points = [];
+    const scale = Math.min(width / 60, height / 40);
+    const angle = .58 + view * .18;
+    const cosine = Math.cos(angle);
+    const sine = Math.sin(angle);
+    for (let row = 0; row <= resolution; row++) {
+      const line = [];
+      for (let column = 0; column <= resolution; column++) {
+        const x = column - resolution / 2;
+        const z = row - resolution / 2;
+        const ridge = 10 * Math.exp(-((x + 3) ** 2 / 43 + (z - 3) ** 2 / 89));
+        const crest = 7.5 * Math.exp(-((x - 9) ** 2 / 47 + (z + 7) ** 2 / 25));
+        const wave = 2 * Math.sin(x * .31 + z * .22 - time) * Math.cos(z * .23 + time * .44);
+        const elevation = ridge + crest + wave;
+        const depth = x * sine + z * cosine;
+        const perspective = 1 + depth * .009;
+        line.push({
+          x: width * .5 + (x * cosine - z * sine) * scale * perspective,
+          y: height * .59 + (depth * .48 - elevation) * scale * perspective,
+          strength: Math.max(0, Math.min(1, (elevation + 1) / 11))
+        });
+      }
+      points.push(line);
+    }
+
+    for (let row = 0; row <= resolution; row++) {
+      for (let column = 0; column <= resolution; column++) {
+        const point = points[row][column];
+        const right = points[row][column + 1];
+        const behind = points[row + 1]?.[column];
+        const edge = Math.min(row, column, resolution - row, resolution - column);
+        const opacity = Math.min(1, .35 + edge * .13);
+        context.lineWidth = .65 + point.strength * .45;
+        context.strokeStyle = 'rgba(255,' + Math.round(105 + point.strength * 74) + ',108,' + (opacity * (.21 + point.strength * .60)) + ')';
+        context.beginPath();
+        if (right) {
+          context.moveTo(point.x, point.y);
+          context.lineTo(right.x, right.y);
+        }
+        if (behind) {
+          context.moveTo(point.x, point.y);
+          context.lineTo(behind.x, behind.y);
+        }
+        context.stroke();
+        if ((row % 6 === 0 && column % 6 === 0) || (point.strength > .75 && (row + column) % 7 === 0)) {
+          context.fillStyle = 'rgba(255,209,166,' + (opacity * (.38 + point.strength * .5)) + ')';
+          context.fillRect(point.x - 1, point.y - 1, 2, 2);
+        }
+      }
+    }
+  }
+
+  function animate(now) {
+    frame = 0;
+    if (previousTime) time += Math.min(now - previousTime, 50) * .00125;
+    previousTime = now;
+    view += (targetView - view) * .045;
+    draw();
+    frame = requestAnimationFrame(animate);
+  }
+
+  function updateAnimation() {
+    button.textContent = paused ? 'Запустить' : 'Пауза';
+    button.setAttribute('aria-pressed', String(paused));
+    if (paused || !visible || document.hidden) {
+      cancelAnimationFrame(frame);
+      frame = previousTime = 0;
+    } else if (!frame) {
+      frame = requestAnimationFrame(animate);
+    }
+  }
+
+  new ResizeObserver(() => {
+    const scale = Math.min(devicePixelRatio || 1, 2);
+    width = canvas.clientWidth;
+    height = canvas.clientHeight;
+    canvas.width = Math.round(width * scale);
+    canvas.height = Math.round(height * scale);
+    context.setTransform(scale, 0, 0, scale, 0, 0);
+    draw();
+  }).observe(canvas);
+
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    updateAnimation();
+  }).observe(canvas);
+
+  canvas.addEventListener('pointermove', event => {
+    if (event.pointerType === 'mouse') targetView = 2 * event.offsetX / width - 1;
+  });
+  canvas.addEventListener('pointerleave', () => { targetView = 0; });
+  button.addEventListener('click', () => {
+    paused = !paused;
+    updateAnimation();
+  });
+  preference.addEventListener('change', () => {
+    paused = preference.matches;
+    updateAnimation();
+  });
+  document.addEventListener('visibilitychange', updateAnimation);
+  updateAnimation();
+}
+
+setupTerrain();
 </script>
 </body>
 </html>
