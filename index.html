@@ -3,52 +3,176 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101217">
+<meta name="theme-color" content="#070e19">
 <meta name="description" content="Саян Оразбек. Веб-разработка, данные и автоматизация. Избранные проекты с GitHub.">
 <title>Саян Оразбек — Портфолио</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff8057'/%3E%3Cpath d='M8 11l5 5-5 5m8 0h8' fill='none' stroke='%23101217' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2389f9dc'/%3E%3Cpath d='M8 11l5 5-5 5m8 0h8' fill='none' stroke='%23070e19' stroke-width='2.5'/%3E%3C/svg%3E">
 <style>
-:root{color-scheme:dark;--bg:#101217;--panel:#151820;--ink:#f5f4ef;--muted:#aab0bb;--line:#2d323e;--orange:#ff8057;--mono:ui-monospace,"SF Mono",Consolas,monospace;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);scroll-behavior:smooth}
-*,*::before,*::after{box-sizing:border-box}body{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}button[disabled]{cursor:default}.frame{width:min(1232px,calc(100% - 104px));margin-inline:auto}.mono,.eyebrow{font-family:var(--mono)}.orange,h2 span{color:var(--orange)}.skip,.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip:focus{width:auto;height:auto;clip-path:none;z-index:5;top:12px;left:12px;padding:12px;background:var(--ink);color:var(--bg)}
-.site-header{border-bottom:1px solid var(--line)}.header-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:inline-flex;align-items:center;gap:12px;font:700 1.04rem var(--mono);letter-spacing:-.06em}.brand-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:var(--orange);color:#171217;letter-spacing:-.11em;padding-right:2px}.header-inner nav{display:flex;gap:34px;color:var(--muted);font-size:.94rem}.header-inner a:hover,.footer a:hover{color:var(--orange)}.github-nav{font: .89rem var(--mono);border:1px solid var(--line);border-radius:7px;padding:10px 13px;white-space:nowrap}.external{margin-left:5px;color:var(--orange)}
-.hero{min-height:590px;display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:clamp(24px,5vw,80px);padding-block:75px 82px}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--orange);font-size:.78rem;letter-spacing:.14em;font-weight:650;margin:0 0 20px}.eyebrow>span{width:15px;height:1px;background:currentColor;display:inline-block}.hero h1{font-size:clamp(4rem,8.6vw,9rem);line-height:.85;letter-spacing:-.075em;margin:0 0 28px;font-weight:790}.hero h1 strong{font-weight:inherit}.hero h1 strong span{color:var(--orange)}.subtitle{font-weight:650;font-size:clamp(1.1rem,1.9vw,1.38rem);letter-spacing:-.035em;margin:0 0 12px}.intro,.section-description,.about-copy p{font-size:1.05rem;line-height:1.65;color:var(--muted);margin:0 0 25px;max-width:44ch}.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 17px;border:1px solid var(--line);border-radius:7px;background:#191d26;font-weight:700;font-size:.94rem}.button:hover{border-color:var(--orange);color:var(--orange)}.button.primary{border-color:transparent;background:var(--orange);color:#171217}.button.primary:hover{background:#ffad90}
-.visual{overflow:hidden;position:relative;aspect-ratio:1.19;border:1px solid #37323b;border-radius:14px;background:radial-gradient(ellipse at 50% 65%,#2b1c23 0%,#171821 47%,#141720 77%);isolation:isolate}.visual::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#a8b5e00b 1px,transparent 1px),linear-gradient(90deg,#a8b5e00b 1px,transparent 1px);background-size:30px 30px;z-index:-1}.visual canvas{display:block;width:100%;height:100%;position:absolute;inset:0;touch-action:pan-y}.visual-top,.visual-bottom{position:absolute;z-index:1;left:17px;right:17px;display:flex;align-items:center;gap:9px;color:#a7acb7;font-size:.70rem;letter-spacing:.085em;pointer-events:none}.visual-top{top:17px}.visual-bottom{bottom:15px;justify-content:space-between}.axes{margin-left:auto}.indicator{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px #ff805780}.visual button{pointer-events:auto;background:#171923;border:1px solid var(--line);border-radius:5px;padding:6px 9px;font-size:.74rem}.visual button:hover{color:var(--orange)}
-section[id]{scroll-margin-top:24px}.projects{border-top:1px solid var(--line);padding-block:45px 72px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:25px}.section-head .eyebrow,.content-section .eyebrow{margin-bottom:13px}h2{margin:0;font-size:clamp(2.8rem,6.2vw,5.5rem);letter-spacing:-.075em;line-height:1}.filters,.stack-buttons{display:flex;flex-wrap:wrap;gap:6px}.filters{padding:5px;background:#151820;border:1px solid var(--line);border-radius:8px}.filters button,.stack-buttons button{padding:8px 12px;border:1px solid transparent;background:transparent;border-radius:5px;color:var(--muted);font-size:.87rem;white-space:nowrap}.filters button:hover,.stack-buttons button:hover{color:var(--ink)}.filters button[aria-pressed=true],.stack-buttons button[aria-pressed=true]{background:#392923;color:#ff9d7d;border-color:#664433}.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.project-card{display:flex;flex-direction:column;min-width:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:border-color .2s,transform .2s}.project-card:hover{border-color:#8a5747;transform:translateY(-3px)}.project-card[hidden]{display:none}.card-copy{padding:17px;display:flex;flex:1;flex-direction:column}.card-top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font:.76rem var(--mono)}.card-top a:hover{color:var(--orange)}h3{margin:10px 0 7px;font-size:1.42rem;letter-spacing:-.04em}.card-copy p{margin:0 0 16px;color:var(--muted);line-height:1.55;font-size:.96rem}.tags{display:flex;flex-wrap:wrap;gap:5px;padding:0;margin:0 0 15px;list-style:none}.tags li{color:#c3c8d1;font:.72rem var(--mono);border:1px solid var(--line);padding:4px 7px;border-radius:4px}.card-action{width:100%;margin-top:auto;text-align:left;border:0;border-top:1px solid var(--line);background:none;padding:12px 0 0;color:var(--orange);font-size:.87rem;font-weight:700}.card-action:hover{text-decoration:underline}
+:root{color-scheme:dark;--bg:#070e19;--panel:#101a2b;--ink:#f1f7ff;--muted:#aebfd2;--line:#293e55;--accent:#89f9dc;--mono:ui-monospace,"SF Mono",Consolas,monospace;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}body{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}button[disabled]{cursor:default}.frame{width:min(1232px,calc(100% - 104px));margin-inline:auto}.mono,.eyebrow{font-family:var(--mono)}.accent,h2 span{color:var(--accent)}.skip,.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip:focus{width:auto;height:auto;clip-path:none;z-index:5;top:12px;left:12px;padding:12px;background:var(--ink);color:var(--bg)}
+.site-header{border-bottom:1px solid var(--line)}.header-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:inline-flex;align-items:center;gap:12px;font:700 1.04rem var(--mono);letter-spacing:-.06em}.brand-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:var(--accent);color:#071923;letter-spacing:-.11em;padding-right:2px}.header-inner nav{display:flex;gap:34px;color:var(--muted);font-size:.94rem}.header-inner a:hover,.footer a:hover{color:var(--accent)}.github-nav{font: .89rem var(--mono);border:1px solid var(--line);border-radius:7px;padding:10px 13px;white-space:nowrap}.external{margin-left:5px;color:var(--accent)}
+.hero{min-height:590px;display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:clamp(24px,5vw,80px);padding-block:75px 82px}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--accent);font-size:.78rem;letter-spacing:.14em;font-weight:650;margin:0 0 20px}.eyebrow>span{width:15px;height:1px;background:currentColor;display:inline-block}.hero h1{font-size:clamp(4rem,8.6vw,9rem);line-height:.85;letter-spacing:-.075em;margin:0 0 28px;font-weight:790}.hero h1 strong{font-weight:inherit}.hero h1 strong span{color:var(--accent)}.subtitle{font-weight:650;font-size:clamp(1.1rem,1.9vw,1.38rem);letter-spacing:-.035em;margin:0 0 12px}.intro,.section-description,.about-copy p{font-size:1.05rem;line-height:1.65;color:var(--muted);margin:0 0 25px;max-width:44ch}.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 17px;border:1px solid var(--line);border-radius:7px;background:#191d26;font-weight:700;font-size:.94rem}.button:hover{border-color:var(--accent);color:var(--accent)}.button.primary{border-color:transparent;background:var(--accent);color:#071923}.button.primary:hover{background:#c4fff0}
+section[id]{scroll-margin-top:24px}.projects{border-top:1px solid var(--line);padding-block:45px 72px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:25px}.section-head .eyebrow,.content-section .eyebrow{margin-bottom:13px}h2{margin:0;font-size:clamp(2.8rem,6.2vw,5.5rem);letter-spacing:-.075em;line-height:1}.filters,.stack-buttons{display:flex;flex-wrap:wrap;gap:6px}.filters{padding:5px;background:#101a2b;border:1px solid var(--line);border-radius:8px}.filters button,.stack-buttons button{padding:8px 12px;border:1px solid transparent;background:transparent;border-radius:5px;color:var(--muted);font-size:.87rem;white-space:nowrap}.filters button:hover,.stack-buttons button:hover{color:var(--ink)}.filters button[aria-pressed=true],.stack-buttons button[aria-pressed=true]{background:#392923;color:#ff9d7d;border-color:#664433}.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.project-card{display:flex;flex-direction:column;min-width:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:border-color .2s,transform .2s}.project-card:hover{border-color:#8a5747;transform:translateY(-3px)}.project-card[hidden]{display:none}.card-copy{padding:17px;display:flex;flex:1;flex-direction:column}.card-top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font:.76rem var(--mono)}.card-top a:hover{color:var(--accent)}h3{margin:10px 0 7px;font-size:1.42rem;letter-spacing:-.04em}.card-copy p{margin:0 0 16px;color:var(--muted);line-height:1.55;font-size:.96rem}.tags{display:flex;flex-wrap:wrap;gap:5px;padding:0;margin:0 0 15px;list-style:none}.tags li{color:#c3c8d1;font:.72rem var(--mono);border:1px solid var(--line);padding:4px 7px;border-radius:4px}.card-action{width:100%;margin-top:auto;text-align:left;border:0;border-top:1px solid var(--line);background:none;padding:12px 0 0;color:var(--accent);font-size:.87rem;font-weight:700}.card-action:hover{text-decoration:underline}
 .preview{height:165px;position:relative;display:grid;place-items:center;overflow:hidden;color:var(--tone);background-color:var(--surface);background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:19px 19px;border-bottom:1px solid var(--line);padding:22px}.preview[data-art=screen]{--tone:#ffa480;--surface:#261c27}.preview[data-art=fitness]{--tone:#b5ef80;--surface:#20291f}.preview[data-art=react]{--tone:#f8bb7c;--surface:#30251d}.preview[data-art=quiz]{--tone:#d2bbff;--surface:#272036}.preview[data-art=database]{--tone:#84dbff;--surface:#182739}.preview[data-art=backup]{--tone:#ff8b76;--surface:#322127}.preview-art{width:min(100%,234px);padding:11px 13px;border:1px solid currentColor;border-radius:7px;background:#12141be6;box-shadow:0 10px 32px #0007;font:.79rem/1.65 var(--mono);transform:rotate(-3deg)}.preview-art::before{content:"";display:block;width:5px;height:5px;background:currentColor;border-radius:50%;box-shadow:9px 0 currentColor,18px 0 currentColor;margin-bottom:9px;opacity:.62}.preview-art span{display:block;white-space:nowrap}.preview-art span+span{opacity:.75}
-.content-section{border-top:1px solid var(--line);padding-block:60px;display:grid;grid-template-columns:.9fr 1.1fr;gap:35px}.section-description{margin:18px 0 0}.stack-panel{padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.stack-buttons button{border-color:var(--line);color:var(--ink)}.stack-detail{min-height:102px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);line-height:1.6}.stack-detail p{margin:0 0 8px}.stack-detail button{margin:4px 8px 0 0;padding:4px 9px;background:none;border:1px solid var(--line);border-radius:4px;color:var(--orange);font-size:.83rem}.stack-detail button:hover{border-color:var(--orange)}.footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;padding-block:22px;color:var(--muted);font:.8rem var(--mono)}
-dialog{color:var(--ink);background:var(--panel);border:1px solid #4c4147;border-radius:14px;padding:0;width:min(620px,calc(100% - 28px));max-height:calc(100% - 28px);overscroll-behavior:contain}dialog::backdrop{background:#090a10c9;backdrop-filter:blur(6px)}body:has(dialog[open]){overflow:hidden}.dialog-body{padding:26px;position:relative}.dialog-body .preview{border:1px solid var(--line);border-radius:8px;margin:14px 0 18px}.dialog-body h2{font-size:clamp(2rem,6vw,3.4rem);padding-right:44px}.dialog-body p:not(.eyebrow),.dialog-body li:not(.tags li){color:var(--muted);line-height:1.55}.dialog-body h3{font-size:1.13rem}.dialog-body ul:not(.tags){padding-left:22px}.dialog-body .button{margin-right:8px;margin-top:7px}.close{position:absolute;right:15px;top:15px;width:38px;height:38px;border:1px solid var(--line);border-radius:6px;background:#1d212c;font-size:23px;line-height:1;z-index:2}.close:hover{color:var(--orange)}
+.content-section{border-top:1px solid var(--line);padding-block:60px;display:grid;grid-template-columns:.9fr 1.1fr;gap:35px}.section-description{margin:18px 0 0}.stack-panel{padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.stack-buttons button{border-color:var(--line);color:var(--ink)}.stack-detail{min-height:102px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);line-height:1.6}.stack-detail p{margin:0 0 8px}.stack-detail button{margin:4px 8px 0 0;padding:4px 9px;background:none;border:1px solid var(--line);border-radius:4px;color:var(--accent);font-size:.83rem}.stack-detail button:hover{border-color:var(--accent)}.footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;padding-block:22px;color:var(--muted);font:.8rem var(--mono)}
+dialog{color:var(--ink);background:var(--panel);border:1px solid #4c4147;border-radius:14px;padding:0;width:min(620px,calc(100% - 28px));max-height:calc(100% - 28px);overscroll-behavior:contain}dialog::backdrop{background:#090a10c9;backdrop-filter:blur(6px)}body:has(dialog[open]){overflow:hidden}.dialog-body{padding:26px;position:relative}.dialog-body .preview{border:1px solid var(--line);border-radius:8px;margin:14px 0 18px}.dialog-body h2{font-size:clamp(2rem,6vw,3.4rem);padding-right:44px}.dialog-body p:not(.eyebrow),.dialog-body li:not(.tags li){color:var(--muted);line-height:1.55}.dialog-body h3{font-size:1.13rem}.dialog-body ul:not(.tags){padding-left:22px}.dialog-body .button{margin-right:8px;margin-top:7px}.close{position:absolute;right:15px;top:15px;width:38px;height:38px;border:1px solid var(--line);border-radius:6px;background:#1d212c;font-size:23px;line-height:1;z-index:2}.close:hover{color:var(--accent)}
 @media(max-width:1000px){.frame{width:calc(100% - 64px)}.hero{min-height:0;padding-block:65px 61px}.hero h1{font-size:clamp(3.7rem,9.4vw,6.8rem)}.intro{font-size:1rem}}
-@media(max-width:760px){.frame{width:calc(100% - 36px)}.header-inner{height:auto;min-height:60px;gap:10px;flex-wrap:wrap;padding-top:10px}.header-inner nav{order:3;width:100%;padding:5px 0 11px;gap:24px}.hero{grid-template-columns:1fr;gap:26px;padding-block:41px 38px}.hero h1{font-size:clamp(3.9rem,14vw,7rem);margin-bottom:19px}.hero .eyebrow{margin-bottom:15px}.intro{margin-bottom:18px}.visual{aspect-ratio:1.52}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column;gap:17px}.projects{padding-block:35px 45px}.content-section{padding-block:40px;gap:20px;grid-template-columns:1fr}}
+@media(max-width:760px){.frame{width:calc(100% - 36px)}.header-inner{height:auto;min-height:60px;gap:10px;flex-wrap:wrap;padding-top:10px}.header-inner nav{order:3;width:100%;padding:5px 0 11px;gap:24px}.hero{grid-template-columns:1fr;gap:26px;padding-block:41px 38px}.hero h1{font-size:clamp(3.9rem,14vw,7rem);margin-bottom:19px}.hero .eyebrow{margin-bottom:15px}.intro{margin-bottom:18px}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column;gap:17px}.projects{padding-block:35px 45px}.content-section{padding-block:40px;gap:20px;grid-template-columns:1fr}}
 @media(max-width:475px){.project-grid{grid-template-columns:1fr}.filters button{padding-inline:9px}.preview{height:140px}.footer{font-size:.73rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 .preview[data-art=editor]{--tone:#d2bbff;--surface:#272036}.preview[data-art=plan]{--tone:#79ead3;--surface:#1b2b2f}.preview[data-art=fitness] .preview-art,.preview[data-art=plan] .preview-art{transform:rotate(3deg)}.preview[data-art=database] .preview-art{transform:none}.preview[data-art=editor] .preview-art{transform:rotate(2deg)}
+body {
+  background:
+    radial-gradient(ellipse at 92% 48%, #122d43 0%, transparent 40%),
+    radial-gradient(ellipse at 2% 78%, #152744 0%, transparent 35%),
+    #070e19;
+}
+.site-header {
+  position: relative;
+  z-index: 2;
+  border-color: #23344b;
+  background: #090f1bee;
+}
+.header-inner nav { gap: clamp(18px, 3vw, 36px); }
+.github-nav { background: #102034; border-color: #29425a; }
+.brand-icon { color: #061623; }
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(35rem, 67vw, 45rem);
+  padding: 5.5rem 0 6.5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 84% 38%, #12364d 0%, transparent 48%),
+    radial-gradient(ellipse at 60% 83%, #182e58 0%, transparent 56%),
+    linear-gradient(150deg, #08121f 15%, #0b1b34 70%, #07101c);
+}
+.hero::before, .hero::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+.hero::before {
+  z-index: -2;
+  background-image: linear-gradient(#b1c8ff14 1px, transparent 1px),
+    linear-gradient(90deg, #b1c8ff14 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 77% 43%, black, transparent 74%);
+}
+.hero::after {
+  z-index: -1;
+  background: linear-gradient(90deg, #07101cee 3%, #07101ca6 35%, transparent 68%),
+    linear-gradient(0deg, #070e19 0%, transparent 24%);
+}
+#terrain {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.hero-copy { position: relative; }
+.hero h1 {
+  margin-bottom: 26px;
+  font-size: clamp(4.7rem, 10.2vw, 9.4rem);
+  line-height: .82;
+  letter-spacing: -.085em;
+}
+.hero h1 strong { color: #e0f0ff; }
+.hero .eyebrow { margin-bottom: 24px; }
+.hero .intro { max-width: 37ch; color: #c1d0e3; }
+.hero .subtitle { font-size: clamp(1.08rem, 2vw, 1.42rem); }
+.hero .primary {
+  min-height: 50px;
+  color: #071923;
+  box-shadow: 0 8px 28px #63ded031;
+}
+.hero .primary:hover { background: #c4fff0; }
+.hero-tools {
+  position: absolute;
+  bottom: 22px;
+  right: max(52px, calc((100% - 1232px) / 2));
+}
+.hero-tools button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #395b73;
+  border-radius: 7px;
+  background: #0a182ad9;
+  color: #c3d7e8;
+  font: .8rem var(--mono);
+}
+.hero-tools button:hover { border-color: var(--accent); color: var(--accent); }
+
+.projects { padding-top: 46px; }
+.project-card {
+  background: linear-gradient(150deg, #142238, #0e1728 70%);
+  box-shadow: 0 14px 45px #02061158;
+}
+.project-card:hover { border-color: #4a8b99; }
+.preview {
+  background-image: radial-gradient(ellipse at 64% 48%, color-mix(in srgb, var(--tone) 21%, transparent), transparent 70%),
+    linear-gradient(#ffffff14 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff14 1px, transparent 1px);
+  background-size: auto, 23px 23px, 23px 23px;
+}
+.preview-art {
+  border-color: color-mix(in srgb, var(--tone) 58%, #192635);
+  background: #0a1322f2;
+}
+.filters { background: #101c30; }
+.filters button[aria-pressed=true],
+.stack-buttons button[aria-pressed=true] {
+  background: #173c44;
+  color: #a1f8e0;
+  border-color: #3d7780;
+}
+.stack-panel { background: linear-gradient(135deg, #16283d, #101a2e); }
+.dialog-body .button.primary { color: #071923; }
+.dialog-body .button.primary:hover { background: #c4fff0; }
+dialog { border-color: #3c5972; }
+
+@media (max-width: 1000px) {
+  .hero-tools { right: 32px; }
+}
+@media (max-width: 760px) {
+  .hero { min-height: 36rem; padding: 4.5rem 0 7rem; }
+  .hero h1 { font-size: clamp(3.55rem, 13.5vw, 6.8rem); }
+  .hero::after {
+    background: linear-gradient(90deg, #07101cad, #07101c22),
+      linear-gradient(0deg, #070e19 0%, transparent 27%);
+  }
+  .hero-tools { right: 18px; bottom: 17px; }
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#projects">К содержимому</a>
 <header class="site-header" id="top">
   <div class="frame header-inner">
-    <a href="#top" class="brand" aria-label="Саян Оразбек, начало"><span class="brand-icon" aria-hidden="true">&gt;_</span><span>OSKSayan<span class="orange">.</span></span></a>
+    <a href="#top" class="brand" aria-label="Саян Оразбек, начало"><span class="brand-icon" aria-hidden="true">&gt;_</span><span>OSKSayan<span class="accent">.</span></span></a>
     <nav aria-label="Разделы"><a href="#projects">Проекты</a><a href="#stack">Стек</a><a href="#about">Обо мне</a></nav>
     <a class="github-nav" href="https://github.com/OSKSayan" target="_blank" rel="noopener">GitHub</a>
   </div>
 </header>
-<main class="frame">
+<main>
   <section class="hero" aria-labelledby="intro">
-    <div class="hero-copy">
+    <div class="hero-copy frame">
       <p class="eyebrow"><span></span> ASTANA, KZ / DATA SCIENCE</p>
       <h1 id="intro">Саян<br><strong>Оразбек<span>.</span></strong></h1>
       <p class="subtitle">Веб-разработка, данные и автоматизация</p>
       <p class="intro">Учусь на Data Science в AIU. Собираю сайты и инструменты, которые помогают учиться, тренироваться и решать повседневные задачи.</p>
       <a class="button primary" href="#projects">Смотреть проекты</a>
     </div>
-    <div class="visual">
-      <div class="visual-top mono"><span class="indicator"></span> ПРОЦЕДУРНЫЙ РЕЛЬЕФ <span class="axes" aria-hidden="true">X / Y / Z</span></div>
-      <canvas id="terrain" width="750" height="540" aria-hidden="true"></canvas>
-      <div class="visual-bottom mono"><span>3D · CANVAS</span><button id="motion" type="button" aria-pressed="false">Пауза</button></div>
-    </div>
+    <canvas id="terrain" aria-hidden="true"></canvas>
+    <div class="hero-tools"><button id="motion" type="button" aria-pressed="false">Пауза фона</button></div>
   </section>
-
+  <div class="frame">
   <section class="projects" id="projects" aria-labelledby="project-heading">
     <div class="section-head"><div><p class="eyebrow"><span></span> GITHUB / ИЗБРАННОЕ</p><h2 id="project-heading">Проекты<span>.</span></h2></div>
       <div class="filters" role="group" aria-label="Фильтр проектов">
@@ -75,6 +199,7 @@ dialog{color:var(--ink);background:var(--panel);border:1px solid #4c4147;border-
     <div><p class="eyebrow"><span></span> ПРОФИЛЬ</p><h2 id="about-heading">Обо мне<span>.</span></h2></div>
     <div class="about-copy"><p>Я Саян, студент Astana International University. Изучаю Data Science и пробую разные форматы разработки: от веб-интерфейсов до баз данных и автоматизации.</p><p>Люблю проекты, которые можно открыть и сразу попробовать. Поэтому здесь собрал работы с исходным кодом и коротким разбором того, как они устроены.</p><a class="button" href="https://github.com/OSKSayan" target="_blank" rel="noopener">Профиль на GitHub</a></div>
   </section>
+  </div>
 </main>
 <footer class="frame footer"><span>Саян Оразбек · Астана, Казахстан</span><a href="#top">К началу</a></footer>
 <dialog id="project-dialog" aria-labelledby="dialog-title">
@@ -265,7 +390,7 @@ function setupTerrain() {
     return;
   }
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
-  const resolution = 34;
+  const hero = canvas.closest('.hero');
   let paused = preference.matches;
   let visible = false;
   let frame = 0;
@@ -278,56 +403,57 @@ function setupTerrain() {
 
   function draw() {
     context.clearRect(0, 0, width, height);
-    const points = [];
-    const scale = Math.min(width / 60, height / 40);
-    const angle = .58 + view * .18;
-    const cosine = Math.cos(angle);
-    const sine = Math.sin(angle);
-    for (let row = 0; row <= resolution; row++) {
-      const line = [];
-      for (let column = 0; column <= resolution; column++) {
-        const x = column - resolution / 2;
-        const z = row - resolution / 2;
-        const ridge = 10 * Math.exp(-((x + 3) ** 2 / 43 + (z - 3) ** 2 / 89));
-        const crest = 7.5 * Math.exp(-((x - 9) ** 2 / 47 + (z + 7) ** 2 / 25));
-        const wave = 2 * Math.sin(x * .31 + z * .22 - time) * Math.cos(z * .23 + time * .44);
-        const elevation = ridge + crest + wave;
-        const depth = x * sine + z * cosine;
-        const perspective = 1 + depth * .009;
-        line.push({
-          x: width * .5 + (x * cosine - z * sine) * scale * perspective,
-          y: height * .59 + (depth * .48 - elevation) * scale * perspective,
-          strength: Math.max(0, Math.min(1, (elevation + 1) / 11))
-        });
-      }
-      points.push(line);
-    }
+    const compact = width < 761;
+    const span = Math.min(width * (compact ? .76 : .57), height * 1.22);
+    const centerX = width * (compact ? .96 : .77) + view * span * .08;
+    const centerY = height * (compact ? .59 : .49);
+    const glow = context.createRadialGradient(centerX, centerY, 0, centerX, centerY, span * .74);
+    glow.addColorStop(0, '#27c8d536');
+    glow.addColorStop(.45, '#4573e523');
+    glow.addColorStop(1, '#17295d00');
+    context.fillStyle = glow;
+    context.fillRect(0, 0, width, height);
 
-    for (let row = 0; row <= resolution; row++) {
-      for (let column = 0; column <= resolution; column++) {
-        const point = points[row][column];
-        const right = points[row][column + 1];
-        const behind = points[row + 1]?.[column];
-        const edge = Math.min(row, column, resolution - row, resolution - column);
-        const opacity = Math.min(1, .35 + edge * .13);
-        context.lineWidth = .65 + point.strength * .45;
-        context.strokeStyle = 'rgba(255,' + Math.round(105 + point.strength * 74) + ',108,' + (opacity * (.21 + point.strength * .60)) + ')';
-        context.beginPath();
-        if (right) {
-          context.moveTo(point.x, point.y);
-          context.lineTo(right.x, right.y);
-        }
-        if (behind) {
-          context.moveTo(point.x, point.y);
-          context.lineTo(behind.x, behind.y);
-        }
-        context.stroke();
-        if ((row % 6 === 0 && column % 6 === 0) || (point.strength > .75 && (row + column) % 7 === 0)) {
-          context.fillStyle = 'rgba(255,209,166,' + (opacity * (.38 + point.strength * .5)) + ')';
-          context.fillRect(point.x - 1, point.y - 1, 2, 2);
+    const color = context.createLinearGradient(centerX - span * .48, centerY + span * .42,
+      centerX + span * .45, centerY - span * .42);
+    color.addColorStop(0, '#3159aa14');
+    color.addColorStop(.32, '#688dffb3');
+    color.addColorStop(.68, '#5de3ffef');
+    color.addColorStop(1, '#a1ffe3');
+    context.strokeStyle = color;
+
+    const rings = compact ? 33 : 46;
+    const samples = 112;
+    for (let ring = 0; ring < rings; ring++) {
+      const layer = ring / (rings - 1);
+      context.globalAlpha = .23 + .58 * Math.sin(Math.PI * layer);
+      context.lineWidth = ring % 7 === 0 ? 1.7 : .82;
+      context.beginPath();
+
+      for (let step = 0; step <= samples; step++) {
+        const angle = step / samples * 2 * Math.PI;
+        const bend = .64 + .12 * Math.sin(3 * angle + layer * 5 + time * .62)
+          + .08 * Math.cos(2 * angle - layer * 3 - time * .34);
+        const radius = span * (.21 + layer * .43) * bend;
+        const cross = Math.sin(angle) * radius;
+        const reach = Math.cos(angle) * radius;
+        const twist = layer - .5;
+        const x = centerX + reach * 1.37 - cross * .81 + twist * span * .16;
+        const y = centerY + reach * .53 + cross * .79 - twist * span * .43
+          + Math.sin(angle * 2 + time + layer * 3) * span * .055;
+
+        if (step === 0) context.moveTo(x, y);
+        else context.lineTo(x, y);
+
+        if (step > 0 && step < samples && ring % 8 === 3 && (step + ring * 3) % 31 === 0) {
+          context.fillStyle = '#b8ffed';
+          context.fillRect(x - 1, y - 1, 2, 2);
         }
       }
+      context.closePath();
+      context.stroke();
     }
+    context.globalAlpha = 1;
   }
 
   function animate(now) {
@@ -340,7 +466,7 @@ function setupTerrain() {
   }
 
   function updateAnimation() {
-    button.textContent = paused ? 'Запустить' : 'Пауза';
+    button.textContent = paused ? 'Оживить фон' : 'Пауза фона';
     button.setAttribute('aria-pressed', String(paused));
     if (paused || !visible || document.hidden) {
       cancelAnimationFrame(frame);
@@ -365,10 +491,12 @@ function setupTerrain() {
     updateAnimation();
   }).observe(canvas);
 
-  canvas.addEventListener('pointermove', event => {
-    if (event.pointerType === 'mouse') targetView = 2 * event.offsetX / width - 1;
+  hero.addEventListener('pointermove', event => {
+    if (event.pointerType === 'mouse') {
+      targetView = 2 * (event.clientX - hero.getBoundingClientRect().left) / width - 1;
+    }
   });
-  canvas.addEventListener('pointerleave', () => { targetView = 0; });
+  hero.addEventListener('pointerleave', () => { targetView = 0; });
   button.addEventListener('click', () => {
     paused = !paused;
     updateAnimation();
